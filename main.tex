@@ -179,7 +179,15 @@ identities all vanish, since $\sin(2n \cdot \frac{\pi}{2}) =
 \sin(n\pi) = 0$. Through integration by parts and recursive
 substitution of $I$, the value of even Wallis integrals are known to be:
 \[
-  W_{2n} = \frac{(2n-1)!!}{2^n} \cdot \frac{\pi}{2}
+  W_{2n} = \frac{(2n-1)!!}{(2n)!!} \cdot \frac{\pi}{2}
 \]
+
+After substituting in the value of the Wallis integrals, we can now express the general (approximate) formula for the period of a pendulum using the integrated Maclaurin series:
+\begin{align*}
+  T &= 2\pi \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[\frac{(-1)^n (2n-1)!!}{(2n)!!} k^{2n} \cdot W_{2n}\right] \\
+  &= 2\pi \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[\frac{(-1)^n (2n-1)!!}{(2n)!!} k^{2n} \cdot \frac{(2n-1)!!}{(2n)!!} \cdot \frac{\pi}{2}\right] \\
+  &= 2\pi \cdot \frac{\pi}{2} \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[(-1)^n k^{2n} \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 \right] \\
+  &= \pi \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[(-1)^n \sin^{2n}(\frac{\theta_{\mathrm{max}}}{2}) \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 \right]
+\end{align*}
 
 \end{document}
