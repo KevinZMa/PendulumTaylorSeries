@@ -1,0 +1,47 @@
+\documentclass[preview]{standalone}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{cancel}
+\usepackage{mathtools}
+
+\begin{document}
+
+\color{white}
+\[
+  \int_{0}^{\frac{\pi}{2}} \frac{1}{\sqrt{1 - k^2
+  \sin^2 \theta}} \, d\theta = \int_{0}^{\frac{\pi}{2}}
+  \sum_{n=0}^{\infty} \left[\frac{(-1)^n (2n-1)!!}{(2n)!!}
+  {\left(k\sin\theta\right)}^{2n}\right] \, d\theta
+\]
+Take constant (non-$\theta$) terms out of integral, since they
+are independent of $\theta$:
+\[
+  = \sum_{n=0}^{\infty} \left[\frac{(-1)^n (2n-1)!!}{(2n)!!} k^{2n}
+  \int_{0}^{\frac{\pi}{2}} \sin^{2n} \theta \, d\theta\right]
+\]
+We evaluate the first three terms of the series to get a sense of the pattern:
+\[
+  1 - \frac{1}{2}k^2\int_{0}^{\frac{\pi}{2}} \sin^2 \theta \, d\theta
+  + \frac{3}{8}k^4\int_{0}^{\frac{\pi}{2}} \sin^4 \theta \, d\theta + \cdots
+\]
+Find the values of the definite integrals using half-angle identities:
+\[
+  \int_{0}^{\frac{\pi}{2}} \left(\frac{1}{2} -
+  \frac{1}{2}\cos(2\theta)\right) \, d\theta = \left[\frac{\theta}{2}
+  - \frac{1}{4}\sin(2\theta)\right]_{0}^{\frac{\pi}{2}} = \frac{\pi}{4}
+\]
+\[
+  \int_{0}^{\frac{\pi}{2}} \sin^4 \theta \, d\theta =
+  \left[\frac{\theta}{4} - \frac{1}{4}\sin(2\theta) +
+    \frac{\theta}{8} +
+  \frac{1}{32}\sin(4\theta)\right]_{0}^{\frac{\pi}{2}} =
+  \frac{\pi}{8} + \frac{\pi}{16} = \frac{3\pi}{16}
+\]
+The resulting terms are:
+\[
+  1 - \frac{1}{2}k^2\left(\frac{\pi}{4}\right) +
+  \frac{3}{8}k^4\left(\frac{3\pi}{16}\right) + \cdots
+\]
+
+
+\end{document}
