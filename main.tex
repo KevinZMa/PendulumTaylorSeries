@@ -123,7 +123,7 @@ Since $2^n n!$ is equivalent to multiplying by 2 for every term in
 the factorial, we can rewrite the series as the following, after
 substituting $u = k^2 \sin^2 \theta = (k\sin\theta)^2$:
 \[
-  \sum_{n=0}^{\infty} \frac{ (2n-1)!!}{(2n)!!}
+  \sum_{n=0}^{\infty} \frac{(2n-1)!!}{(2n)!!}
   {\left(k\sin\theta\right)}^{2n}
 \]
 Keep in mind that for $n = 0$, $(2(0) - 1)!! = (-1)!! = 1$ by
@@ -135,13 +135,13 @@ Substitute the above Maclaurin series into the integral:
 \[
   \int_{0}^{\frac{\pi}{2}} \frac{1}{\sqrt{1 - k^2
   \sin^2 \theta}} \, d\theta = \int_{0}^{\frac{\pi}{2}}
-  \sum_{n=0}^{\infty} \left[\frac{ (2n-1)!!}{(2n)!!}
+  \sum_{n=0}^{\infty} \left[\frac{(2n-1)!!}{(2n)!!}
   {\left(k\sin\theta\right)}^{2n}\right] \, d\theta
 \]
 Take constant (non-$\theta$) terms out of the integral, since they
 are independent of $\theta$:
 \[
-  = \sum_{n=0}^{\infty} \left[\frac{ (2n-1)!!}{(2n)!!} k^{2n}
+  = \sum_{n=0}^{\infty} \left[\frac{(2n-1)!!}{(2n)!!} k^{2n}
   \int_{0}^{\frac{\pi}{2}} \sin^{2n} \theta \, d\theta\right]
 \]
 
