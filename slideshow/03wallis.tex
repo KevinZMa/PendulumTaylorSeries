@@ -4,30 +4,32 @@
 \usepackage{cancel}
 \usepackage{mathtools}
 
-
 % \usepackage[margin=0.5in]{geometry}
 
-
 \begin{document}
-
-
 
 \color{white}
 
 Pattern: \textbf{Wallis' integrals}, defined by sequence $W_n =
 \int_{0}^{\frac{\pi}{2}} \sin^n \theta \, d\theta$. Evaluating each
-definite integral gives some multiple of $\frac{\pi}{2}$, and recursive cosine terms all vanish, since $\sin(2n \cdot \frac{\pi}{2}) = \sin(n\pi) = 0$. Through integration by parts and recursive
+definite integral gives some multiple of $\frac{\pi}{2}$, and
+recursive cosine terms all vanish, since $\sin(2n \cdot
+\frac{\pi}{2}) = \sin(n\pi) = 0$. Through integration by parts and recursive
 substitution of $I$, the value of even Wallis integrals are known to be:
 \[
   W_{2n} = \frac{(2n-1)!!}{(2n)!!} \cdot \frac{\pi}{2}
 \]
 Substitute Wallis integrals to simplify:
 \begin{align*}
-    T &= 4 \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[\frac{ (2n-1)!!}{(2n)!!} k^{2n} \cdot W_{2n}\right] \\
-    &= 4 \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[\frac{ (2n-1)!!}{(2n)!!} k^{2n} \cdot \frac{(2n-1)!!}{(2n)!!} \cdot \frac{\pi}{2}\right] \\
-    &= 4 \cdot \frac{\pi}{2} \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[ k^{2n} \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 \right] \\
-    &= 2\pi \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[ \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 k^{2n} \right]
+  T &= 4 \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[\frac{
+  (2n-1)!!}{(2n)!!} k^{2n} \cdot W_{2n}\right] \\
+  &= 4 \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[\frac{
+    (2n-1)!!}{(2n)!!} k^{2n} \cdot \frac{(2n-1)!!}{(2n)!!} \cdot
+  \frac{\pi}{2}\right] \\
+  &= 4 \cdot \frac{\pi}{2} \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty}
+  \left[ k^{2n} \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 \right] \\
+  &= 2\pi \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[
+  \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 k^{2n} \right]
 \end{align*}
-
 
 \end{document}

@@ -103,11 +103,13 @@ use the Maclaurin series expansion for $(1 - u)^{-1/2}$ around $u =
   f^{(1)}(0) = \frac{1}{2^1} \\
   f^{(2)}(u) &= -\frac{1\cdot3}{2^2} (1-u)^{-\frac{5}{2}} (-1)
   &&\rightarrow f^{(2)}(0) = \frac{1\cdot3}{2^2} \\
-  f^{(3)}(u) &= -\frac{\color{blue}\overbrace{1\cdot3\cdot5}^{\mathclap{\text{odd-only
+  f^{(3)}(u) &=
+  -\frac{\color{blue}\overbrace{1\cdot3\cdot5}^{\mathclap{\text{odd-only
   factorial}}}}{\color{red}2^3} (1-u)^{\color{orange} -\frac{7}{2}} (-1)
   &&\rightarrow f^{(3)}(0) =
   \frac{1\cdot3\cdot5}{2^3} \\
-  f^{(n)}(u) &= \frac{{\color{blue}(2n-1)!!}}{{\color{red}2^n}} (1-u)^{\color{orange} -\frac{2n+1}{2}}
+  f^{(n)}(u) &= \frac{{\color{blue}(2n-1)!!}}{{\color{red}2^n}}
+  (1-u)^{\color{orange} -\frac{2n+1}{2}}
   &&\rightarrow f^{(n)}(0) = \frac{{(2n-1)!!}}{{2^n}}
 \end{align*}
 
@@ -181,12 +183,19 @@ substitution of $I$, the value of even Wallis integrals are known to be:
   W_{2n} = \frac{(2n-1)!!}{(2n)!!} \cdot \frac{\pi}{2}
 \]
 
-After substituting in the value of the Wallis integrals, we can now express the general (approximate) formula for the period of a pendulum using the integrated Maclaurin series:
+After substituting in the value of the Wallis integrals, we can now
+express the general (approximate) formula for the period of a
+pendulum using the integrated Maclaurin series:
 \begin{align*}
-  T &= 4 \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[\frac{ (2n-1)!!}{(2n)!!} k^{2n} \cdot W_{2n}\right] \\
-  &= 4 \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[\frac{ (2n-1)!!}{(2n)!!} k^{2n} \cdot \frac{(2n-1)!!}{(2n)!!} \cdot \frac{\pi}{2}\right] \\
-  &= 4 \cdot \frac{\pi}{2} \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[ k^{2n} \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 \right] \\
-  &= 2\pi \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[ \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 k^{2n} \right]
+  T &= 4 \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[\frac{
+  (2n-1)!!}{(2n)!!} k^{2n} \cdot W_{2n}\right] \\
+  &= 4 \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[\frac{
+    (2n-1)!!}{(2n)!!} k^{2n} \cdot \frac{(2n-1)!!}{(2n)!!} \cdot
+  \frac{\pi}{2}\right] \\
+  &= 4 \cdot \frac{\pi}{2} \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty}
+  \left[ k^{2n} \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 \right] \\
+  &= 2\pi \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[
+  \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 k^{2n} \right]
 \end{align*}
 
 \end{document}
