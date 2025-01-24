@@ -1,0 +1,34 @@
+\documentclass[preview]{standalone}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{cancel}
+\usepackage{mathtools}
+\usepackage{siunitx}
+
+% \usepackage[margin=0.5in]{geometry}
+
+\begin{document}
+
+\color{white}
+
+Let $L = 1$ m and $\theta_{\mathrm{max}} = \frac{\pi}{6}$ radians. It follows that $k = \sin\left(\frac{\theta_{\mathrm{max}}}{2}\right) = \sin\left(\frac{\pi}{12}\right)$. The CIPM defines $g = \SI{9.80665}{\meter/\second\squared}$.
+
+Using a calculator, the exact period of the pendulum is:
+% https://www.wolframcloud.com/obj/662d9cb9-443c-46df-802f-d61b0c882544
+\[
+  T = 4\sqrt{\frac{1}{g}} \int_{0}^{\frac{\pi}{2}} \frac{1}{\sqrt{1 - \sin^2\left(\frac{\pi}{12}\right) \sin^2 \theta}} \, d\theta \approx \boxed{\SI{2.041339}{\second}}
+\]
+
+\begin{align*}
+    T_0 &= 2\pi \sqrt{\frac{L}{g}} \left(1\right) \approx \boxed{\SI{2.006409}{\second}} \\
+    T_1 &= 2\pi \sqrt{\frac{L}{g}} \left(1 + \frac{1}{4}k^2\right) \approx \boxed{\SI{2.040010}{\second}} \\
+    T_2 &= 2\pi \sqrt{\frac{L}{g}} \left(1 + \frac{1}{4}k^2 + \frac{9}{64}k^4\right) \approx \boxed{\SI{2.041276}{\second}} \\
+    T_3 &= 2\pi \sqrt{\frac{L}{g}} \left(1 + \frac{1}{4}k^2 + \frac{9}{64}k^4 + \frac{25}{256}k^6\right) \approx \boxed{\SI{2.041335}{\second}}
+\end{align*}
+
+As the number of terms approaches infinity, the value of $T$ converges to the value using the definite integral.
+\[
+  T = 2\pi \sqrt{\frac{L}{g}} \left(1 + \frac{1}{4}k^2 + \frac{9}{64}k^4 + \frac{25}{256}k^6 + \cdots\right)
+\]
+
+\end{document}

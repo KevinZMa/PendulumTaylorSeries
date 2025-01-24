@@ -6,6 +6,9 @@
 \usepackage{tikz}
 \usepackage{cancel}
 
+\usepackage{siunitx}
+\sisetup{per-mode=fraction,group-digits=none}
+
 \usetikzlibrary{decorations.pathreplacing}
 
 \title{Approximating the Period of a Pendulum\\[0.2em]
@@ -196,6 +199,65 @@ pendulum using the integrated Maclaurin series:
   \left[ k^{2n} \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 \right] \\
   &= 2\pi \sqrt{\frac{L}{g}} \sum_{n=0}^{\infty} \left[
   \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 k^{2n} \right]
+\end{align*}
+
+\section{Results}
+
+Let $L = 1$ m and $\theta_{\mathrm{max}} = \frac{\pi}{6}$ radians. It follows that $k = \sin\left(\frac{\theta_{\mathrm{max}}}{2}\right) = \sin\left(\frac{\pi}{12}\right)$. The CIPM defines $g = \SI{9.80665}{\meter/\second\squared}$.
+
+Using a calculator, the exact period of the pendulum is:
+% https://www.wolframcloud.com/obj/662d9cb9-443c-46df-802f-d61b0c882544
+\[
+  T = 4\sqrt{\frac{1}{g}} \int_{0}^{\frac{\pi}{2}} \frac{1}{\sqrt{1 - \sin^2\left(\frac{\pi}{12}\right) \sin^2 \theta}} \, d\theta \approx \boxed{\SI{2.041339}{\second}}
+\]
+
+\begin{align*}
+  T_0 &= 2\pi \sqrt{\frac{L}{g}} \left(1\right) \approx \boxed{\SI{2.006409}{\second}} \\
+  T_1 &= 2\pi \sqrt{\frac{L}{g}} \left(1 + \frac{1}{4}k^2\right) \approx \boxed{\SI{2.040010}{\second}} \\
+  T_2 &= 2\pi \sqrt{\frac{L}{g}} \left(1 + \frac{1}{4}k^2 + \frac{9}{64}k^4\right) \approx \boxed{\SI{2.041276}{\second}} \\
+  T_3 &= 2\pi \sqrt{\frac{L}{g}} \left(1 + \frac{1}{4}k^2 + \frac{9}{64}k^4 + \frac{25}{256}k^6\right) \approx \boxed{\SI{2.041335}{\second}}
+\end{align*}
+
+As the number of terms approaches infinity, the value of $T$ converges to the value using the definite integral.
+\[
+  T = 2\pi \sqrt{\frac{L}{g}} \left(1 + \frac{1}{4}k^2 + \frac{9}{64}k^4 + \frac{25}{256}k^6 + \cdots\right)
+\]
+
+
+\section{Error Bound}
+
+Using the ratio test,
+\begin{align*}
+  \lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right| &= \lim_{n \to \infty} \left|\frac{\left(\frac{(2n+1)!!}{(2n+2)!!}\right)^2 k^{2n+2}}{\left(\frac{(2n-1)!!}{(2n)!!}\right)^2 k^{2n}}\right| \\
+  &= \lim_{n \to \infty} \left|\frac{\left(\frac{(2n+1)\cancel{(2n-1)!!}}{(2n+2)\cancel{(2n)!!}}\right)^2 \cancel{k^{2n}}k^2}{\left(\frac{\cancel{(2n-1)!!}}{\cancel{(2n)!!}}\right)^2 \cancel{k^{2n}}}\right| \\
+  &= \lim_{n \to \infty} \left|\frac{(2n+1)^2}{(2n+2)^2} k^2\right| = \left|k^2\right| \tag{\text{ladder of functions}} \\
+  &\implies \left|k^2\right| < 1 \implies -1 < k < 1 \implies -1 < \sin\left(\frac{\theta_{\mathrm{max}}}{2}\right) < 1 \\
+  &\implies 0 < \theta_{\mathrm{max}} < \pi \tag{\text{$\theta_{\mathrm{max}}$ is nonnegative}}
+\end{align*}
+
+% SKIP THIS (OUT OF CLASS SCOPE)
+
+% Test the right endpoint of the interval ($k = 1$):
+
+% \[
+%   (2n-1)!! = \frac{\overbrace{(2n)!}^{\mathclap{\text{odd and even factorials}}} }{\underbrace{(2n)!!}_{\mathclap{\text{even-only factorial}}}} = \frac{(2n)!}{2^n n!}
+% \]
+
+% \[
+%   \sum_{n=0}^{\infty} \left(\frac{(2n-1)!!}{(2n)!!}\right)^2 = \sum_{n=0}^{\infty} \frac{\frac{(2n)!}{2^n n!}}{2^n n!} = \sum_{n=0}^{\infty} \frac{(2n)!}{(2^n n!)^2} 
+% \]
+% Ratio test (inconclusive):
+% \[
+%   \lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right| = \lim_{n \to \infty} \left|\frac{\frac{(2n+2)(2n+1)(2n)!}{(2^{n}\cdot2 \cdot (n+1)(n)!)^2}}{\frac{(2n)!}{(2^n n!)^2}}\right| = \lim_{n \to \infty} \left|\frac{(2n+2)(2n+1)}{4(n+1)^2}\right| = 1
+% \]
+
+The maximum error bound is given by the next term in the series.
+\[T_\infty = T_j + R_j \quad \implies \quad R_j = T_\infty - T_j \leq a_{j+1} \]
+\begin{align*}
+  T_0 \approx \SI{2.006409}{\second} \quad &\implies \quad R_0 \leq 2\pi \sqrt{\frac{L}{g}} \left(\frac{1}{4}k^2\right) \approx \boxed{\SI{0.001266}{\second}} \\
+  T_1 \approx \SI{2.040010}{\second} \quad &\implies \quad R_1 \leq 2\pi \sqrt{\frac{L}{g}} \left(\frac{9}{64}k^4\right) \approx \boxed{\SI{0.000059}{\second}} \\
+  T_2 \approx \SI{2.041276}{\second} \quad &\implies \quad R_2 \leq 2\pi \sqrt{\frac{L}{g}} \left(\frac{25}{256}k^6\right) \approx \boxed{\SI{0.000003}{\second}} \\
+  T_3 \approx \SI{2.041335}{\second} \quad &\implies \quad R_3 \leq 2\pi \sqrt{\frac{L}{g}} \left(\frac{49}{1024}k^8\right) \approx \boxed{\SI{0.000000}{\second}} \\
 \end{align*}
 
 \end{document}

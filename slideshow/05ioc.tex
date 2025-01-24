@@ -1,0 +1,23 @@
+\documentclass[preview]{standalone}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{cancel}
+\usepackage{mathtools}
+\usepackage{siunitx}
+
+% \usepackage[margin=0.5in]{geometry}
+
+\begin{document}
+
+\color{white}
+
+Using the ratio test,
+\begin{align*}
+  \lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right| &= \lim_{n \to \infty} \left|\frac{\left(\frac{(2n+1)!!}{(2n+2)!!}\right)^2 k^{2n+2}}{\left(\frac{(2n-1)!!}{(2n)!!}\right)^2 k^{2n}}\right| \\
+  &= \lim_{n \to \infty} \left|\frac{\left(\frac{(2n+1)\cancel{(2n-1)!!}}{(2n+2)\cancel{(2n)!!}}\right)^2 \cancel{k^{2n}}k^2}{\left(\frac{\cancel{(2n-1)!!}}{\cancel{(2n)!!}}\right)^2 \cancel{k^{2n}}}\right| \\
+  &= \lim_{n \to \infty} \left|\frac{(2n+1)^2}{(2n+2)^2} k^2\right| = \left|k^2\right| \tag{\text{ladder of functions}} \\
+  &\implies \left|k^2\right| < 1 \implies -1 < k < 1 \implies -1 < \sin\left(\frac{\theta_{\mathrm{max}}}{2}\right) < 1 \\
+  &\implies 0 < \theta_{\mathrm{max}} < \pi \tag{\text{$\theta_{\mathrm{max}}$ is nonnegative}}
+\end{align*}
+
+\end{document}
